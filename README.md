@@ -6,10 +6,15 @@ Instalando cURL para Ubuntu Linux
 El procedimiento para instalar cURL en Ubuntu Linux es el siguiente:
 
 Actualiza tus paquetes de ubuntu, ejecuta:
+
 sudo apt update && sudo apt upgrade
+
 Siguiente, instala cURL, ejecuta:
+
 sudo apt install curl
-Verifica la instalación de cURL ejecutando el siguiente comando: 
+
+Verifica la instalación de cURL ejecutando el siguiente comando:
+
 curl --version
 
 https://stedolan.github.io/jq/download/
