@@ -20,7 +20,9 @@ curl --version
 https://stedolan.github.io/jq/download/
 
 Instalar jq desde la consola linux (esto para formatear la salida en formato json):
+
 sudo apt-get install jq
 
 Por último ejecuta el archivo en la consola de ubuntu:
-$ ./arg-localidades.sh 
+
+$ ./arg-localidades.sh
