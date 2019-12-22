@@ -1,5 +1,7 @@
 # localidades-argentinas
-Obtener todas las localidades por provincia de la República Argentina recuperado de https://github.com/Wolox/arg-localities.
+Obtener todas las localidades por provincia de la República Argentina recuperado de:
+
+https://github.com/Wolox/arg-localities.
 
 Instalando cURL para Ubuntu Linux
 
@@ -23,6 +25,6 @@ Instalar jq desde la consola linux (esto para formatear la salida en formato jso
 
 sudo apt-get install jq
 
-Por último ejecuta el archivo en la consola de ubuntu:
+Por último ejecuta el siguiente archivo en la consola de ubuntu:
 
 $ ./arg-localidades.sh
