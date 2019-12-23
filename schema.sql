@@ -24,7 +24,6 @@ CREATE TABLE localidad (
   FOREIGN KEY (id_provincia) REFERENCES provincia (id_provincia)
 ) ENGINE = INNODB CHARSET = utf8 COLLATE = utf8_general_ci ;
 
-
 # Inserción en la tabla provincia
 INSERT INTO provincia 
 VALUES
