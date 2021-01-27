@@ -1,4 +1,5 @@
-# https://github.com/Wolox/arg-localities
+# Recuperado de https://github.com/Wolox/arg-localities
+
 declare -A PROVINCES
 PROVINCES['A']='Salta'
 PROVINCES['B']='Buenos Aires'
@@ -25,9 +26,12 @@ PROVINCES['X']='C\u00F3rdoba'
 PROVINCES['Y']='Jujuy'
 PROVINCES['Z']='Santa Cruz'
 
+rm -rf por-provincia
+mkdir por-provincia
+
 for i in A B C D E F G H J K L M N P Q R S T U V W X Y Z; do
    echo -e "  ## Processing province ${PROVINCES[${i}]}"
-   text="{\"iso_31662\":\"AR-${i}\", \"provincia\":\"${PROVINCES[${i}]}\", \"localidades\":"
+   text="{\"iso_31662\":\"AR-${i}\",\"provincia\":\"${PROVINCES[${i}]}\",\"localidades\":"
    text="${text}`curl -s 'https://www.correoargentino.com.ar/sites/all/modules/custom/ca_forms/api/wsFacade.php' \
    -H 'authority: www.correoargentino.com.ar' \
    -H 'accept: application/json, text/javascript, */*; q=0.01' \
@@ -46,7 +50,8 @@ for i in A B C D E F G H J K L M N P Q R S T U V W X Y Z; do
    echo '    ## Saving current province localities...'
    text=$(echo ${text} | tr -cd '\11\12\15\40-\176')
    CURRENT_FILE=$(echo -e "por-provincia/${PROVINCES[${i}]}.json" | tr -d '[:space:]')
-   echo ${text} | jq '.' | cat > ${CURRENT_FILE}
+   # --compact-output compacta la salida (minificado)
+   echo ${text} | jq --compact-output '.' | cat > ${CURRENT_FILE}
    echo '    ## [DONE]'
 
    # Append current province localities to full json
@@ -64,5 +69,5 @@ echo '## Saving all localities per province...'
 full_json="${full_json}]"
 
 rm -f arg-localidades.json
-echo ${full_json} | jq '.' | cat > arg-localidades.json
+echo ${full_json} | jq --compact-output '.' | cat > arg-localidades.json
 echo '## [DONE]'
